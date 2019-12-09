@@ -3,9 +3,9 @@ body {
 }
 
 header {
-    width:600px;
+    width:1000px;
     padding: 5px 20px;
-    margin: 10 auto 10 auto;
+    margin: 20 auto 10 250;
     border-radius: 5px;
     background-color: #f2f2f2;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.15);
@@ -16,21 +16,26 @@ h1 {
 }
 
 #tableInputs {
-    width:600px;
-    margin:auto;
+    width:200px;
+    /* margin:10px; */
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    background: #eee;
+    overflow-x: hidden;
 }
 
 #calendar {
-    width:600px;
-    margin:10 auto 10 auto;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.19);
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    margin-left: 250px;    
+    padding: 20px;
+    width: 1000px;
 }
 
 input[type=text] {

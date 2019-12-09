@@ -4,11 +4,13 @@
 * Date: December 3, 2019
 *****************************************************/
 
+// Variable declarations
 var rows, columns, startDate, tableStructure;
 
+// Event handling for button push
 var getButton = document.getElementById("tableButton");
-console.log(getButton);
 getButton.addEventListener("click", runProgram);
+getButton.addEventListener("click", clearInputs);
 
 function runProgram(E) {
     //get rows and columns. 
@@ -36,20 +38,28 @@ function createStructure(rows, columns) {
     return outputArray;
 }
 
+// take the prebuilt structure and make it an html table.
 function createTable (tableStructure) {
     var selectTable = document.getElementById("calendarTable");
+    var today = new Date();
 
     for (var i = 0; i < tableStructure.length; i++) {
         var createTR = document.createElement("tr");
 
         for (var j = 0; j < tableStructure[i].length; j++) {
             var createTD = document.createElement("td");
-            var txt = document.createTextNode(tableStructure[i][j]);
-            createTD.appendChild(txt);
+
+            var insertDate = document.createTextNode(today.toDateString());
+            today.setDate(today.getDate() + 1);
+
+            createTD.appendChild(insertDate);
             createTR.appendChild(createTD);
         }
 
         selectTable.appendChild(createTR);
     }
-    
+}
+
+function clearInputs() {
+    document.getElementById("tableInputs").reset();
 }
