@@ -1,0 +1,27 @@
+<html>
+    <head<>
+        <title>Calendar App</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Calendar App</h1>
+        </header>
+        <form id="tableInputs">
+            <label for="rows">Rows</label>
+            <input type="text" id="rowInput" name="rows" placeholder="Enter number of rows...">
+
+            <label for="columns">Columns</label>
+            <input type="text" id="columnInput" name="columns" placeholder="Enter number of columns...">
+
+            <input type="submit" value="Generate Table" id="tableButton" onclick="runProgram()">
+        </form>
+        <div id="calendar">
+            <table id="calendarTable" style="width:100%">
+                
+            </table>
+        </div>
+    </body>
+</html>

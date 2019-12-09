@@ -1,0 +1,68 @@
+body {
+    background-color: gray;
+}
+
+header {
+    width:600px;
+    padding: 5px 20px;
+    margin: 10 auto 10 auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 6px 6px rgba(0,0,0,0.15);
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+#tableInputs {
+    width:600px;
+    margin:auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#calendar {
+    width:600px;
+    margin:10 auto 10 auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.19);
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=submit] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0 13px 0;
+    background-color: #4CAF50;
+    color: white;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;    
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+input[type=submit]:disabled {
+    background: #F5F5F5;
+    color : #C3C3C3;
+}
+
