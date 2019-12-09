@@ -3,7 +3,7 @@
         <title>Calendar App</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/styles.css" type="text/css">
-        <script src="js/script.js"></script>
+        <script src="js/script.js" defer></script>
     </head>
     <body>
         <header>
@@ -16,7 +16,7 @@
             <label for="columns">Columns</label>
             <input type="text" id="columnInput" name="columns" placeholder="Enter number of columns...">
 
-            <input type="submit" value="Generate Table" id="tableButton" onclick="runProgram()">
+            <input type="button" value="Generate Table" id="tableButton">
         </form>
         <div id="calendar">
             <table id="calendarTable" style="width:100%">
