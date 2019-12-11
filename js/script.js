@@ -4,13 +4,17 @@
 * Date: December 3, 2019
 *****************************************************/
 
-// Variable declarations
-var rows, columns, startDate, tableStructure;
+// Global variable declarations
+var rows, columns, selectedRow, selectedCol, startDate, tableStructure;
 
-// Event handling for button push
+// Event handling for table generating button
 var getButton = document.getElementById("tableButton");
 getButton.addEventListener("click", runProgram);
 getButton.addEventListener("click", clearInputs);
+
+// Event handling for reset button
+var resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", resetForm);
 
 function runProgram(E) {
     //get rows and columns. 
@@ -32,7 +36,7 @@ function createStructure(rows, columns) {
     for (var i = 0; i < rows; i++) {
         outputArray[i] = []; 
         for (var j = 0; j < columns; j++) { 
-            outputArray[i][j] = counter++;
+            outputArray[i][j] = null;
         }
     }
     return outputArray;
@@ -48,18 +52,74 @@ function createTable (tableStructure) {
 
         for (var j = 0; j < tableStructure[i].length; j++) {
             var createTD = document.createElement("td");
+            var createID = i + "-" + j;
+            var makeBR = document.createElement("br");
+            var makeLine = document.createTextNode(" | ");
 
+            // create date node
             var insertDate = document.createTextNode(today.toDateString());
             today.setDate(today.getDate() + 1);
 
+            // create add links
+            var addLink = document.createElement("a");
+            addLink.innerHTML = "Add Event";
+            addLink.setAttribute("href", "#");
+            addLink.addEventListener("click", addEventToCell);
+
+            // create view links
+            var viewLink = document.createElement("a");
+            viewLink.innerHTML = "View Events";
+            viewLink.setAttribute("href", "#");
+            // addLink.addEventListener("click", copy FUNCTION);
+
+            // add id to cells, add date to cells, add cell to row.
+            createTD.setAttribute("id", createID);
             createTD.appendChild(insertDate);
+            createTD.appendChild(makeBR);
+            createTD.appendChild(addLink);
+            createTD.appendChild(makeLine);
+            createTD.appendChild(viewLink);
             createTR.appendChild(createTD);
         }
-
         selectTable.appendChild(createTR);
     }
+}
+
+function addEventToCell(E) {
+    var addLink = E.target;
+    var parentTD = addLink.parentNode;
+
+    var idArray = (parentTD.id).split("-");
+
+    var selectedRow = Number(idArray[0]);
+    var selectedCol = Number(idArray[1]);
+
+    var newEvent = prompt("Add your new event:");
+
+    console.log(tableStructure[selectedRow][selectedCol]); // should be null if nothing added
+
+    if (tableStructure[selectedRow][selectedCol] == null) {
+        tableStructure[selectedRow][selectedCol] = [];
+        tableStructure[selectedRow][selectedCol].push(newEvent);
+    }
+    else {
+        tableStructure[selectedRow][selectedCol].push(newEvent);
+    }
+
+    console.log(tableStructure[selectedRow][selectedCol]);
 }
 
 function clearInputs() {
     document.getElementById("tableInputs").reset();
 }
+
+function resetForm() {
+    location.reload();
+}
+
+
+
+// TODO: need to create the "Add Events" and "View Events" links
+// Need to add an eventlistener to each of the links
+// one event listener calls a function that returns the number of events
+// other event listener calls a function that lets an event get pushed to appropriate array position
