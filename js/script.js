@@ -70,7 +70,7 @@ function createTable (tableStructure) {
             var viewLink = document.createElement("a");
             viewLink.innerHTML = "View Events";
             viewLink.setAttribute("href", "#");
-            // addLink.addEventListener("click", copy FUNCTION);
+            viewLink.addEventListener("click", viewEvents);
 
             // add id to cells, add date to cells, add cell to row.
             createTD.setAttribute("id", createID);
@@ -107,6 +107,52 @@ function addEventToCell(E) {
     }
 
     console.log(tableStructure[selectedRow][selectedCol]);
+}
+
+function viewEvents(E) {
+    // determine location of clicked cell and store its coordinates
+    var viewLink = E.target;
+    var parentTD = viewLink.parentNode;
+    var idArray = (parentTD.id).split("-");
+    var selectedRow = Number(idArray[0]);
+    var selectedCol = Number(idArray[1]);
+
+    // determine the message to send the modal box
+    var msg, count;
+    
+    if (tableStructure[selectedRow][selectedCol] == null || tableStructure[selectedRow][selectedCol].length < 1) {
+        msg = "There are no events on this day";
+        console.log(msg);
+    }
+    else {
+        count = tableStructure[selectedRow][selectedCol].length;
+        msg = count + " event(s) found on this day";
+        console.log(msg);
+    }
+
+    // send the appropriate message to the modal box
+    modalLogic(msg);
+}
+
+function modalLogic(msg) {
+    // select elements from the modal
+    var modal = document.getElementById("myModal"); 
+    var span = document.getElementsByClassName("close")[0];
+    var text = document.getElementById("modal-text");
+    
+    // set appropriate message for the modal
+    text.innerHTML = msg;
+
+    // set modal behavior
+    modal.style.display = "block";
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(E) {
+        if (E.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 
 function clearInputs() {

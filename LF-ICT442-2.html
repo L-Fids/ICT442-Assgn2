@@ -9,6 +9,7 @@
         <header>
             <h1>Dynamic Table Generator</h1>
         </header>
+       
         <form id="tableInputs">
             <label for="rows">Rows</label>
             <input type="text" id="rowInput" name="rows" placeholder="Enter number of rows...">
@@ -19,10 +20,24 @@
             <input type="button" value="Generate Table" id="tableButton">
             <input type="button" value="Reset" id="resetButton">
         </form>
+        
         <div id="calendar">
             <table id="calendarTable" style="width:100%">
                 
             </table>
         </div>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Event Report</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-text"></p>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
